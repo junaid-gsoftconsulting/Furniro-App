@@ -1,42 +1,30 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import {useNavigation} from '@react-navigation/native';
+import {useStyle} from './styles';
 
 const BottomTab = () => {
+  const navigation = useNavigation<any>();
+  const styles = useStyle();
   return (
-      <View style={styles.container}>
-       <View style={styles.bottomTab1}>
-     <Text>Home</Text>
-       
-    <FontAwesome name="home" size={30} color="#900" />
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <FontAwesome name="home" size={30} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+        <FontAwesome name="shopping-cart" size={30} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Blog')}>
+        <Fontisto name="blogger" size={30} />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+        <AntDesign name="contacts" size={30} />
+      </TouchableOpacity>
     </View>
-    <View style={styles.bottomTab2}>
-        <Text>Products</Text>
-    </View>
-    <View style={styles.bottomTab2}>
-        <Text>Profile</Text>
-    </View>
-   </View>
-  )
-}
+  );
+};
 
-export default BottomTab
-
-const styles = StyleSheet.create({
-container:{
-    backgroundColor:'green',
-   display:"flex",
-   flexDirection:"row",
-   justifyContent:"space-around",
-   height:60
-},
-bottomTab1:{
-    backgroundColor:"pink",
-    padding:4,
-},
-bottomTab2:{
-    backgroundColor:"gray",
-
-}
-})
+export default BottomTab;

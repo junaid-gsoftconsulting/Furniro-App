@@ -1,9 +1,11 @@
-import React from 'react'
- import Home from '../screens/Home'
-import CategoriesScreen from '../screens/categories'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { NavigationContainer } from '@react-navigation/native'
-import BottomTabNavigation from './BottomTabNavigation'
+import React from 'react';
+import Home from '../screens/Home';
+import CategoriesScreen from '../screens/Categories';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import BottomTabNavigation from './BottomTabNavigation';
+import {StatusBar, StyleSheet, View} from 'react-native';
+import {useTheme} from 'react-native-paper';
 
 // const NavigationScreens = () => {
 //     const Stack = createNativeStackNavigator()
@@ -17,10 +19,20 @@ import BottomTabNavigation from './BottomTabNavigation'
 //     </Stack.Navigator>
 //   )
 // }
-const NavigationStack = ()=>{
-  // return (
-
-    <BottomTabNavigation/>
-  // )
-}
+const NavigationStack = () => {
+  const theme = useTheme();
+  return (
+    <NavigationContainer>
+      <StatusBar />
+      <BottomTabNavigation />
+    </NavigationContainer>
+  );
+};
 export default NavigationStack;
+
+// const styles = StyleSheet.create({
+//   container:{
+//     flex:1,
+
+//   }
+// })
